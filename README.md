@@ -1,10 +1,8 @@
-<p align="center">
-  <img src="https://avatars2.githubusercontent.com/u/37049750?s=200&v=4">
-</p>
-<p align="center">
-    <b>🚀 U.S. Election Mission Control 🚀</b>
-</p>
+Thanks to the help of [Dawson Botsford](https://github.com/dawsbot), I am able to set up the server locally to fetch AP election data from Ethereum blockchain.
 
+I cloned [the repository from everipedia](https://github.com/haoshuai999/Election-data-blockchain) and made some custom changes.
+
+The following are the original introduction of how to set up the environment.
 
 > If you have not read the docs yet, [find those here](https://docs.everipedia.org/)
 
@@ -17,8 +15,8 @@ This is a boilerplate for developers to view the raw blockchain data for the U.S
 ### First, add your environment variables to `.env.local`. You can get these Infura URL's [here](https://infura.io/dashboard/ethereum)
 
 ```env
-INFURA_KOVAN_HTTP="REPLACE_THIS_WITH_AN_INFURA_KOVAN_URL"
-INFURA_MAINNET_HTTP="REPLACE_THIS_WITH_AN_INFURA_MAINNET_URL"
+INFURA_KOVAN_HTTP=REPLACE_THIS_WITH_AN_INFURA_KOVAN_URL
+INFURA_MAINNET_HTTP=REPLACE_THIS_WITH_AN_INFURA_MAINNET_URL
 ```
 
 ### Second, run the development server:
