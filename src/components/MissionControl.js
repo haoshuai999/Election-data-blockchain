@@ -8,7 +8,7 @@ const title = "Everipedia + AP Election Mission Control";
 const description =
   "The Associated Press teams up with Everipedia to publish election results on the blockchain. Join us November 3rd!";
 export default function MissionControl(
-  { environment, allWinners } /* mainnet or kovan */
+  { environment, allWinners } /* mainnet or eos */
 ) {
   return (
     <div className={styles.container}>
@@ -37,16 +37,17 @@ export default function MissionControl(
         </h1>
         <p className={styles.description}>
           You are viewing{" "}
-          <b style={{ textDecoration: "underline" }}>{environment}</b>, click
+          <b style={{ textDecoration: "underline" }}>{environment}</b> blockchain, click
           <span style={{ backgroundColor: "#FFFF00" }}>
-            <Link href={environment === "mainnet" ? "/kovan" : "/"}>
+            <Link href={environment === "Ethereum" ? "/eos" : "/"}>
               <a style={{ textDecoration: "underline", fontWeight: "bold" }}>
                 {" "}
-                here to view{" "}
-                {environment === "mainnet" ? "kovan testnet" : "mainnet"}
+                here to view{" "} 
+                {environment === "Ethereum" ? "Eos " : "Ethereum "}
+                blockchain
               </a>
             </Link>
-          </span>
+          </span> 
         </p>
 
         <JSONResults environment={environment} allWinners={allWinners} />

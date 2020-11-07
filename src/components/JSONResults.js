@@ -12,7 +12,7 @@ allWinners data shape
 */
 
 export const JSONResults = (
-  { environment, allWinners } /* mainnet or kovan */
+  { environment, allWinners } /* mainnet or eos */
 ) => {
   // filter out states not yet called
   const nonEmptyWinners = Object.entries(allWinners)
@@ -24,14 +24,18 @@ export const JSONResults = (
       return acc;
     }, {});
 
-  const calledStatesCount = Object.entries(allWinners).filter(
+  const calledStatesCountEos = Object.entries(allWinners).filter(
     ([state, winner]) => winner.president !== "" && state !== "TEST"
+  ).length;
+
+  const calledStatesCountMainnet = Object.entries(allWinners).filter(
+    ([state, winner]) => winner.winner !== "" && state !== "TEST"
   ).length;
 
   return (
     <div>
       <p className={styles.description}>
-        {environment === "kovan" && (
+        {/* {environment === "kovan" && (
           <>
             <img
               src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/237/warning-sign_26a0.png"
@@ -48,11 +52,11 @@ export const JSONResults = (
             />
             <br />
           </>
-        )}
-        Associated Press has called <b>{calledStatesCount}</b> out of 52 states.
+        )} */}
+        Associated Press has called <b>{environment === "Eos"? calledStatesCountEos: calledStatesCountMainnet}</b> out of 52 states.
         (50 states + D.C. + US)
         <br />
-        This data is read directly from the EOS blockchain.
+        This data is read directly from the {environment === "Eos"? "EOS":"Ethereum"} blockchain.
       </p>
       <pre className={styles.description} style={{ textAlign: "left" }}>
         <code className={styles.code}>

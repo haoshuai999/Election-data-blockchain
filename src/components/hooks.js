@@ -5,7 +5,7 @@ import { mainnetContract } from "../mainnet/election-contract";
 import { kovanContract } from "../kovan/election-contract";
 
 export const usePresidentialWinners = (environment /* mainnet or kovan */) => {
-  const contract = environment === "mainnet" ? mainnetContract : kovanContract;
+  const contract = environment === "Ethereum" ? mainnetContract : kovanContract;
   const [winners, setWinners] = useState({});
   const setWinner = (state, res) => {
     setWinners((previousWinners) => ({ ...previousWinners, [state]: res }));
